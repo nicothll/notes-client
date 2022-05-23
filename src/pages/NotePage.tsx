@@ -23,7 +23,7 @@ const NotePage = () => {
     
       const createNote = async () => {
           await axios.post<Note>(
-              "/api/notes/",
+              "/api/notes",
               JSON.stringify({
                 ...note
               }),
@@ -34,16 +34,10 @@ const NotePage = () => {
           )
       };
       const updateNote = async () => {
-        const copy: any = {
-            ...note
-        };
-        
-        delete copy._id;
-
         await axios.put<Note>(
             `/api/notes/${id}`,
             JSON.stringify({
-            ...copy
+            ...note
             }),
             {
                 headers: { 'Content-Type': 'application/json' }

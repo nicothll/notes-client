@@ -19,7 +19,7 @@ const NotesListPage = () => {
         setNotes(response?.data);
       }
     )
-  }, [])
+  }, [setNotes])
       
   return (
     <NotesContainer>
