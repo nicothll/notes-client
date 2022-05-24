@@ -11,6 +11,14 @@
   --color-lighter: #f9f9f9;
   --color-white: #fff;
   --color-border:#e0e3e6;
+  --primary-color: rgb(15, 11, 84);
+  --primary-color-variant: rgba(15, 11, 84, 0.3);
+  --secondary-color: rgb(234, 204, 130);
+  --secondary-color-variant: rgba(234, 204, 130, 0.5);
+  --primary-bg-color: rgb(55, 47, 199);
+  --secondary-bg-color: rgb(241, 229, 150);
+  --primary-bg-variant: radial-gradient(circle, rgb(33, 30, 214) 0%, rgb(81, 111, 186) 100%);
+  --margin-container: 8rem auto 4rem;
 }
 
 .dark {
@@ -44,6 +52,21 @@ body{
   font-size: 16px;
 }
 
-a {
+a, ol, li {
   text-decoration: none;
+}
+
+.App {
+  background: var(--primary-bg-color);
+  background: var(--primary-bg-variant);
+  overflow: hidden;
+  height: 100vh;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: var(--margin-container);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+
 }
