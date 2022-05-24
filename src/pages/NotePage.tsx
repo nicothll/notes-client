@@ -16,12 +16,14 @@ const NotesListPage = () => {
     const [ note, setNote ] = useState<Note>()
 
     useEffect(() => {
-        axios.get<Note>(`/api/notes/${id}`).then(
-          response => {
-            console.log(response?.data);
-            setNote(response?.data);
-          }
-        )
+        if (id !== "new") {
+            axios.get<Note>(`/api/notes/${id}`).then(
+              response => {
+                console.log(response?.data);
+                setNote(response?.data);
+              }
+            )
+        }
       }, [id]);
     
       const createNote = async () => {
@@ -61,7 +63,7 @@ const NotesListPage = () => {
     const handleSubmit = () => {
         if (id !== "new") {
             updateNote()
-        } else if(id === "new" && note !== null){
+        } else if(id === "new" && note !== undefined){
             createNote()
         }
     }
@@ -85,11 +87,19 @@ const NotesListPage = () => {
         exit="exit"
     >
       <NoteHeader>
-        <h3 onClick={handleSubmit}>
+        <motion.h3 
+            whileHover={{
+                x: -8,
+                transition: {
+                    duration: 0.3,
+                    repeat: Infinity
+                }
+            }}
+            onClick={handleSubmit}>
           <Link to="/">
             <ChevronLeftIcon fontSize='inherit' />
           </Link>
-        </h3>
+        </motion.h3>
         <h3>
             <NoteInput
                 name='title'
@@ -98,17 +108,27 @@ const NotesListPage = () => {
                 placeholder="title"
             />
         </h3>
-        <h3>
+        <motion.h3
+            whileHover={{scale: 1.4, originX: 1, originY: -0.3, color: '#cf3132'}}
+            whileTap={{scale: 0.8}}
+        >
             <Link to="/">
                 {
                     id!== "new" ? (
-                        <span onClick={deleteNote}><DeleteForeverIcon fontSize='inherit' /></span>
+                        <span onClick={deleteNote}>
+                            <DeleteForeverIcon fontSize='inherit' />
+                        </span>
                     ) : (
-                        <span onClick={handleSubmit}><SaveAsIcon fontSize='inherit' /></span>
+                        <motion.span
+                            whileHover={{color: '#06EF82'}}
+                            onClick={handleSubmit}
+                        >
+                            <SaveAsIcon fontSize='inherit' />
+                        </motion.span>
                     )
                 }
             </Link>
-        </h3>
+        </motion.h3>
       </NoteHeader>
         <NoteText
               name="description"

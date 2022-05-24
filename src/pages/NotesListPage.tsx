@@ -36,9 +36,10 @@ const NotesListPage = () => {
       >
         <NotesHeader>
           <p><FormatListBulletedIcon /></p>
-          <h2> Notes</h2>
+          <h2>Tasks</h2>
           <p>{ notes.length }</p>
         </NotesHeader>
+        <NotesListContainer>
           <NotesList>
               {
                 notes.map((note: Note, index) => (
@@ -46,6 +47,7 @@ const NotesListPage = () => {
                   ))
                 }
           </NotesList>
+        </NotesListContainer>
       </NotesContainer>
       <ButtonContainer>
         <Link to='notes/new'>
@@ -93,12 +95,14 @@ const NotesHeader = styled.div`
     margin-top: 7px;
   }
 `
-
+const NotesListContainer = styled.div`
+  display: block;
+  overflow-y: auto;
+  height: 60vh;
+`
 const NotesList = styled.ol`
   display: inline;
-  padding: 0;
-  margin: 1rem auto;
-  overflow-y: auto;
+  
 
   @media screen and ${device.mobile} {
     height: 100vh;
