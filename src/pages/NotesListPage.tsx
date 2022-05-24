@@ -1,11 +1,13 @@
-import axios from "../api/axios";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
 import AddIcon from '@mui/icons-material/Add';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+
+import axios from "../api/axios";
 import NoteItem, { Note } from "../components/NoteItem";
-import { motion } from "framer-motion";
 import { containerLeftVariants } from "../animations/variants";
 import { device } from "../config/device";
 

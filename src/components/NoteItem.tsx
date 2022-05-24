@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
 import axios from '../api/axios';
 import { useEffect, useState } from 'react';
 

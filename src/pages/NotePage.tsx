@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from '../api/axios';
 import styled from 'styled-components'
+import { motion } from 'framer-motion';
+
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import SaveAsIcon from '@mui/icons-material/SaveAs';
+
+import axios from '../api/axios';
 import { Note } from "../components/NoteItem"
-import { motion } from 'framer-motion';
 import { containerRightVariants } from '../animations/variants';
 import { device } from '../config/device';
 
