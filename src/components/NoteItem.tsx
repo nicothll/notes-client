@@ -39,7 +39,7 @@ const NoteItem = ({ note }: NoteProps) => {
       if (note.checked !== isChecked){
         updateChecked()
       }
-  }, [note, isChecked])
+  }, [note, updateChecked])
 
   return (
     <NoteItemContainer>
